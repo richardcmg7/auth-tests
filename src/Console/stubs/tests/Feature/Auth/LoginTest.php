@@ -168,7 +168,7 @@ class LoginTest extends TestCase
 
         $response->assertRedirect($this->loginGetRoute());
         $response->assertSessionHasErrors('email');
-        $this->assertRegExp(
+        $this->assertMatchesRegularExpression(
             $this->getTooManyLoginAttemptsMessage(),
             collect(
                 $response
